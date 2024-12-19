@@ -1,0 +1,38 @@
+/* To ensure the form and cards section are aligned and have space between them */
+.container .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Form Section */
+.form-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* Cards Section */
+.cards-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* Cards within the Cards Section */
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Ensure cards are displayed in rows of 3 */
+.cards-container .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* To ensure there's space between the form and cards */
+.form-container .col-md-6,
+.cards-container .col-md-6 {
+  margin-bottom: 20px;
+}

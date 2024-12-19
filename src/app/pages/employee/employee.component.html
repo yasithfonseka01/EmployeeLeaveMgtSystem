@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="form-container">
+      <h2>Employee Registration</h2>
+      <form id="employeeForm">
+        <div class="form-group">
+          <label for="name">Employee Name:</label>
+          <input type="text" name="employeeName" [(ngModel)]="employeeObj.employeeName" id="name" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="contact">Contact No:</label>
+          <input type="text" name="contactNo" [(ngModel)]="employeeObj.contactNo" id="contact" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" name="emailId" [(ngModel)]="employeeObj.emailId" id="email" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="department">Parent Department:</label>
+          <select id="department" (change)="onDeptChange()" name="parentDepId" [(ngModel)]="parentDepId" required>
+            <option value="">Select Department</option>
+            @for (item of parentDepartmentList; track $index) {
+              <option [value]="item.departmentId">{{item.departmentName}}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="department">Child Department:</label>
+            <select id="department" name="deptId"  [(ngModel)]="employeeObj.deptId" required>
+              <option value="">Select Department</option>
+              @for (item of childDepartmentList; track $index) {
+                <option [value]="item.childDeptId">{{item.departmentName}}</option>
+              }
+            </select>
+          </div>
+  
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <input type="text" name="role" [(ngModel)]="employeeObj.role" id="role" required />
+        </div>
+  
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" [(ngModel)]="employeeObj.gender" name="gender" required>
+              <option value="" disabled selected>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+  
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" [(ngModel)]="employeeObj.password" id="password" required />
+        </div>
+        
+        @if(employeeObj.employeeId==0){
+          <button type="button" (click)="onSaveEmployee()">Save Employee</button>
+        }@else {
+          <button type="button" (click)="onUpdateEmployee()">Update Employee</button>
+        }
+        
+      </form>
+    </div>
+  
+    <div class="table-container">
+      <h3>Employee Data</h3>
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Gender</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of allEmployeeList; track $index) {
+            <tr>
+              <td>{{$index+1}}</td>
+              <td>{{item.employeeName}}</td>
+              <td>{{item.emailId}}</td>
+              <td>{{item.role}}</td>
+              <td>{{item.gender}}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="onEdit(item)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(item.employeeId)">Delete</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

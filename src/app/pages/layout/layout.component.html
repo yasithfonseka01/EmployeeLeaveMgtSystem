@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <div class="logo">
+      <a href="/dashboard">
+        <span class="logo-part1">Leave Management</span>
+        <span class="logo-part2">System</span>
+      </a>
+    </div>
+  
+    <ul class="nav-links">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/employee">Employee</a></li>
+      <li><a routerLink="/leave-request">Leave Request</a></li>
+      <li><a routerLink="/earned-request">Earned Request</a></li>
+    </ul>
+  
+    <div class="user-info">
+      <span class="username">Welcome, {{loggedUserData.employeeName}}</span>
+      <button (click)="onLogout()">Logout</button>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  

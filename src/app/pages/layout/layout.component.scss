@@ -1,0 +1,83 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 0.5rem 2rem;
+    color: white;
+  }
+  
+  /* Logo */
+  .logo img {
+    height: 40px; /* Adjust based on your logo size */
+  }
+  
+  /* Navigation links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 1rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #1e90ff; /* Change to your preferred hover color */
+  }
+  
+  /* User info and logout button */
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .username {
+    margin-right: 1rem;
+  }
+  
+  button {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #e84118;
+  }
+
+  .text-logo {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    color: #007bff; /* Change to your desired primary color */
+  }
+  
+  .logo-part1 {
+    color: #ff4757; /* Part 1 color */
+  }
+  
+  .logo-part2 {
+    color: #1e90ff; /* Part 2 color */
+  }
+  
+  /* Optional: Add a subtle shadow */
+  .text-logo {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

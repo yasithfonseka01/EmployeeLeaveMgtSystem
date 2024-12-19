@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <!-- Form Section (Left Side) -->
+    <div class="col-md-6 form-container">
+      <h2>New Leave Request</h2>
+      <form id="leaveRequestForm" [formGroup]="form" (ngSubmit)="onSave()">
+        <div class="form-group border p-3">
+          <label for="employeeId">Select Employee:</label>
+          <select id="employeeId" formControlName="employeeId" name="employeeId" class="form-control">
+            <option value="">Select Employee</option>
+            @for (item of employee$ | async; track $index) {
+              <option [value]="item.employeeId">{{item.employeeName}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group border p-3">
+          <label for="email">Leave Count:</label>
+          <input type="email" formControlName="totalEarnedLeaves" id="totalEarnedLeaves" name="totalEarnedLeaves" class="form-control" />
+        </div>
+        <div class="form-group border p-3">
+          <label>&nbsp;</label>
+          <div class="card-footer text-end mt-2">
+            <button type="submit" class="btn btn-primary btn-sm me-2">Add</button>
+            <button type="submit" class="btn btn-success btn-sm me-2">Edit</button>
+            <button type="submit" class="btn btn-danger btn-sm me-2">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Cards Section (Right Side) -->
+    <div class="col-md-6 cards-container">
+      <h3>Cards Section</h3>
+      <div class="row">
+        @for (item of earnedLeaves; track $index) {
+          <div class="col-md-4">
+            <div class="card border p-3">
+              <div class="card-header">
+                <h5>Employee Name: {{ item.employeeName }}</h5>
+              </div>
+              <div class="card-body">
+                <p>Leave Available: {{ item.totalEarnedLeaves }}</p>
+              </div>
+              <div class="card-body">
+                <p>Update Date: {{ item.lastUpdatedDate | date:'dd-MMM-yy' }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
